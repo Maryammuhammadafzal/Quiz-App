@@ -1,0 +1,126 @@
+/* Basic reset */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+width: 100%;
+height: 100vh;
+background-color: rgba(243, 225, 209, 0.666);
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+
+.img{
+    width: 70%;
+height: 65vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.img img{
+    width: 50%;
+    height: 400px;
+}
+
+.start-btn{
+    
+    width: 50%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.start-btn p{
+   font-size: 1.4rem;
+   font-weight: 600;
+   font-family: 'Courier New', Courier, monospace;
+   padding: 1em;
+}
+
+.start-btn a{
+    padding:0.8rem  0rem 0.8rem 2.5rem ;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
+    background-color: black;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+.start-btn a span{
+    font-weight: 700;
+    padding: 0.6rem 0.8rem;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 50%;
+}
+
+
+/* Question page styling */
+
+#question-box{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    flex-direction: column;
+}
+
+.question-no{
+    width: 100%;
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: burlywood;
+}
+.question-no a{
+    float: left;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color:#ffffff ;
+    text-decoration: none;
+}
+
+.question-no p{
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 1.5rem;
+}
+
+.question-answer{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: burlywood;
+    margin: 1rem 0rem;
+}
+
+.quiz{
+    width: 40%;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    margin: 1rem 0rem;
+}
