@@ -110,17 +110,102 @@ justify-content: center;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: burlywood;
     margin: 1rem 0rem;
 }
 
 .quiz{
-    width: 40%;
-    height: 25vh;
+    width: 35%;
+    height: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
     margin: 1rem 0rem;
+    border-radius: 10px;
+    border-top-right-radius: 110px;
+}
+
+.options{
+    width: 35%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 2rem;
+}
+
+.options label{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 15px;
+    background-color: burlywood;
+}
+
+#next-btn{
+    width: 90%;
+    display: flex;
+    justify-content: right;
+
+}
+
+#next-btn a{
+    padding:0.8rem  0rem 0.8rem 2.5rem ;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
+    background-color: black;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+#next-btn a span{
+    font-weight: 600;
+    padding: 0.6rem 0.8rem;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 50%;
+}
+
+.result{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1rem 0rem;
+    gap: 5%;
+    font-family: 'Courier New', Courier, monospace;
+}
+.result p{
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.result h1{
+   font-size: 4rem;
+   font-weight: 900;
+   margin: 2rem;
+}
+
+.result a{
+    padding:0.7rem 1.5rem  ;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
+    background-color: black;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    text-decoration: none;
 }
