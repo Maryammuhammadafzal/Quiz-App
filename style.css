@@ -126,6 +126,13 @@ justify-content: center;
     border-top-right-radius: 110px;
 }
 
+.quiz p{
+    width: 80%;
+    color: rgb(49, 49, 49);
+    font-family:  Courier, monospace;
+    font-weight: 800;
+}
+
 .options{
     width: 35%;
     height: 40vh;
@@ -143,8 +150,16 @@ justify-content: center;
     display: flex;
     padding: 1rem;
     margin: 1rem;
+    gap: 2%;
+    color: rgb(49, 49, 49);
+    font-family:  Courier, monospace;
+    font-weight: 800;
     border-radius: 15px;
     background-color: burlywood;
+}
+
+#option:checked{
+    background-color: chocolate;
 }
 
 #next-btn{
@@ -154,7 +169,7 @@ justify-content: center;
 
 }
 
-#next-btn a{
+#next-btn button{
     padding:0.8rem  0rem 0.8rem 2.5rem ;
     font-size: 1.4rem;
     font-weight: 600;
@@ -167,7 +182,7 @@ justify-content: center;
     text-decoration: none;
 }
 
-#next-btn a span{
+#next-btn button span{
     font-weight: 600;
     padding: 0.6rem 0.8rem;
     background-color: #ffffff;
