@@ -23,33 +23,33 @@ var questions = [
         correctOption: 'scripr src="xxx.js"',
     }]
 
-var questionBox = document.getElementById('question-box');
-var nextBtn = document.getElementById('next-btn');
-var option = document.getElementsByName('option') ;
-var index = 0;
+// var questionBox = document.getElementById('question-box');
+// var nextBtn = document.getElementById('next-btn');
+// var option = document.getElementsByName('option') ;
+// var index = 0;
 
 
-function showQuestion(){
-    questionBox.innerHTML = `<p>${questions[index].question}</p>
+// function showQuestion(){
+//     questionBox.innerHTML = `<p>${questions[index].question}</p>
 
-    <label>
-        <input type="radio" name="option" value="" >
-        ${questions[index].option1}
-    </label>
-    <br>
-    <label>
-        <input type="radio" name="option" value="" >
-        ${questions[index].option2}
-    </label>
-    <br>
-    <label>
-        <input type="radio" name="option" value="" >
-        ${questions[index].option3}
-    </label>
-    <br>
+//     <label>
+//         <input type="radio" name="option" value="" >
+//         ${questions[index].option1}
+//     </label>
+//     <br>
+//     <label>
+//         <input type="radio" name="option" value="" >
+//         ${questions[index].option2}
+//     </label>
+//     <br>
+//     <label>
+//         <input type="radio" name="option" value="" >
+//         ${questions[index].option3}
+//     </label>
+//     <br>
 
-    <br>
-    <br>`
+//     <br>
+//     <br>`
 
     // option.addEventListener('click' , function(){
     
@@ -58,10 +58,10 @@ function showQuestion(){
 
 
    
-    index++;
-}
+//     index++;
+// }
 
-showQuestion();
+// showQuestion();
 
 
 // option.addEventListener('click' , function(){
@@ -80,58 +80,69 @@ showQuestion();
     //     console.log(option[i]);
     // }
 
-    for(var i = 0; i < option.length; i++){
-        // option[i].addEventListener('click', function(){
-        //     option[i].setAttribute("checked" , "checked") 
-        // })
-        if(option[i].checked){
+    // for(var i = 0; i < option.length; i++){
+    //     // option[i].addEventListener('click', function(){
+    //     //     option[i].setAttribute("checked" , "checked") 
+    //     // })
+    //     if(option[i].checked){
     
-            console.log(option[i].textContent);
-        }
-        console.log(option[i].setAttribute("checked" , "checked"));
-        const input = document.querySelector("input");
+    //         console.log(option[i].textContent);
+    //     }
+    //     console.log(option[i].setAttribute("checked" , "checked"));
+    //     const input = document.querySelector("input");
 
 // input.setAttribute("checked", "checked");
 // if (input.setAttribute("checked", "checked")) {
 //   input.value
 // }
-    }
+    // }
 
 // Let's Do this
 
 var quizbox = document.getElementById('quiz');
 var optionsbox = document.getElementById('options');
 var option = document.getElementsByName('option');
+var nextBtn = document.getElementById('next-btn')
 var index = 0;
+var score = 0;
 
 // console.log(questions[0].question);
 
 function showQuestion(){
   quizbox.innerHTML = `<p>${questions[0].question}</p>`
   optionsbox.innerHTML = `<label>
-                        <input type="radio" name="option" id="option" value="">
+                        <input type="radio" name="option" id="option" value="${questions[0].option1}">
                         ${questions[0].option1}
                     </label>
                     <label>
-                        <input type="radio" name="option" id="option" value="">
+                        <input type="radio" name="option" id="option" value="${questions[0].option2}">
                         ${questions[0].option2}
                     </label>
                     <label>
-                        <input type="radio" name="option" id="option" value="">
+                        <input type="radio" name="option" id="option" value="${questions[0].option3}">
                         ${questions[0].option3}
                     </label>
                    `;
 
                    for(var i=0; i<option.length; i++){
-                     option[i].addEventListener('click' , function(){
-                       // console.log(option[i].);
-                       var input =document.querySelector('option')             
-                     input.setAttribute("checked" , "checked")
-                     console.log(option[i]);
-      
-      
+                      option[i].addEventListener('click' , function(){
+                        var input = document.getElementById('option');          
+                          input.setAttribute("checked" , "checked");
+
+                        if(input.hasAttribute("checked")){
+                          nextBtn.disabled = false;
+                          if(input.value == questions[0].correctOption){
+                               score++;
+                               console.log(score);
+                               
+                          } else{
+                              score = score;
+                            }
+                          
+                        }
       
     })
+    break;
   }
                    
 
@@ -150,89 +161,89 @@ showQuestion();
 
 //////////////////////////////////////////////////
 
-// Sample Questions Array
-const questions = [
-    {
-      question: "What does HTML stand for?",
-      options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language", "Hyper Tool Multi Language"],
-      correctAnswer: 0 // Index of the correct answer in the options array
-    },
-    {
-      question: "What does CSS stand for?",
-      options: ["Cascading Style Sheets", "Creative Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
-      correctAnswer: 0
-    },
-    {
-      question: "Which JavaScript framework is used for building user interfaces?",
-      options: ["React", "Django", "Flask", "Laravel"],
-      correctAnswer: 0
-    }
-  ];
+// // Sample Questions Array
+// const questions = [
+//     {
+//       question: "What does HTML stand for?",
+//       options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language", "Hyper Tool Multi Language"],
+//       correctAnswer: 0 // Index of the correct answer in the options array
+//     },
+//     {
+//       question: "What does CSS stand for?",
+//       options: ["Cascading Style Sheets", "Creative Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
+//       correctAnswer: 0
+//     },
+//     {
+//       question: "Which JavaScript framework is used for building user interfaces?",
+//       options: ["React", "Django", "Flask", "Laravel"],
+//       correctAnswer: 0
+//     }
+//   ];
   
-  // Variables to track quiz state
-  let currentQuestionIndex = 0;
-  let score = 0;
+//   // Variables to track quiz state
+//   let currentQuestionIndex = 0;
+//   let score = 0;
   
-  // Function to load the current question
-  function loadQuestion() {
-    const questionElement = document.getElementById("question");
-    const optionsElement = document.getElementById("options");
+//   // Function to load the current question
+//   function loadQuestion() {
+//     const questionElement = document.getElementById("question");
+//     const optionsElement = document.getElementById("options");
     
-    // Clear existing options
-    optionsElement.innerHTML = "";
+//     // Clear existing options
+//     optionsElement.innerHTML = "";
   
-    // Load the current question
-    const currentQuestion = questions[currentQuestionIndex];
-    questionElement.textContent = currentQuestion.question;
+//     // Load the current question
+//     const currentQuestion = questions[currentQuestionIndex];
+//     questionElement.textContent = currentQuestion.question;
   
-    // Load options
-    currentQuestion.options.forEach((option, index) => {
-      const optionButton = document.createElement("button");
-      optionButton.textContent = option;
-      optionButton.classList.add("option");
-      optionButton.onclick = () => checkAnswer(index);
-      optionsElement.appendChild(optionButton);
-    });
-  }
+//     // Load options
+//     currentQuestion.options.forEach((option, index) => {
+//       const optionButton = document.createElement("button");
+//       optionButton.textContent = option;
+//       optionButton.classList.add("option");
+//       optionButton.onclick = () => checkAnswer(index);
+//       optionsElement.appendChild(optionButton);
+//     });
+//   }
   
-  // Function to check the user's answer
-  function checkAnswer(selectedOption) {
-    const currentQuestion = questions[currentQuestionIndex];
+//   // Function to check the user's answer
+//   function checkAnswer(selectedOption) {
+//     const currentQuestion = questions[currentQuestionIndex];
   
-    if (selectedOption === currentQuestion.correctAnswer) {
-      score++;
-      alert("Correct!");
-    } else {
-      alert("Incorrect!");
-    }
+//     if (selectedOption === currentQuestion.correctAnswer) {
+//       score++;
+//       alert("Correct!");
+//     } else {
+//       alert("Incorrect!");
+//     }
   
-    // Move to the next question or end the quiz
-    currentQuestionIndex++;
+//     // Move to the next question or end the quiz
+//     currentQuestionIndex++;
   
-    if (currentQuestionIndex < questions.length) {
-      loadQuestion();
-    } else {
-      showResults();
-    }
-  }
+//     if (currentQuestionIndex < questions.length) {
+//       loadQuestion();
+//     } else {
+//       showResults();
+//     }
+//   }
   
-  // Function to display the final score
-  function showResults() {
-    const quizContainer = document.getElementById("quiz-container");
-    quizContainer.innerHTML = `
-      <h2>Quiz Completed</h2>
-      <p>Your score: ${score} out of ${questions.length}</p>
-      <button onclick="restartQuiz()">Restart Quiz</button>
-    `;
-  }
+//   // Function to display the final score
+//   function showResults() {
+//     const quizContainer = document.getElementById("quiz-container");
+//     quizContainer.innerHTML = `
+//       <h2>Quiz Completed</h2>
+//       <p>Your score: ${score} out of ${questions.length}</p>
+//       <button onclick="restartQuiz()">Restart Quiz</button>
+//     `;
+//   }
   
-  // Function to restart the quiz
-  function restartQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    loadQuestion();
-  }
+//   // Function to restart the quiz
+//   function restartQuiz() {
+//     currentQuestionIndex = 0;
+//     score = 0;
+//     loadQuestion();
+//   }
   
-  // Initialize the quiz
-  loadQuestion();
+//   // Initialize the quiz
+//   loadQuestion();
   

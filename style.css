@@ -162,14 +162,14 @@ justify-content: center;
     background-color: chocolate;
 }
 
-#next-btn{
+.next-btn{
     width: 90%;
     display: flex;
     justify-content: right;
 
 }
 
-#next-btn button{
+.next-btn button{
     padding:0.8rem  0rem 0.8rem 2.5rem ;
     font-size: 1.4rem;
     font-weight: 600;
@@ -182,7 +182,7 @@ justify-content: center;
     text-decoration: none;
 }
 
-#next-btn button span{
+.next-btn button span{
     font-weight: 600;
     padding: 0.6rem 0.8rem;
     background-color: #ffffff;
