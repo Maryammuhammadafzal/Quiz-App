@@ -52,12 +52,12 @@ var questions = [
 //     <br>`
 
     // option.addEventListener('click' , function(){
-    
+
     //     nextBtn.disabled = false;
     // })
 
 
-   
+
 //     index++;
 // }
 
@@ -65,7 +65,7 @@ var questions = [
 
 
 // option.addEventListener('click' , function(){
-    
+
     //     nextBtn.disabled = false;
     // })
 
@@ -74,7 +74,7 @@ var questions = [
     //     //     option[i].setAttribute("checked" , "checked") 
     //     // })
     //     if(option[i].checked){
-    
+
     //         console.log(option[i].textContent);
     //     }
     //     console.log(option[i]);
@@ -85,7 +85,7 @@ var questions = [
     //     //     option[i].setAttribute("checked" , "checked") 
     //     // })
     //     if(option[i].checked){
-    
+
     //         console.log(option[i].textContent);
     //     }
     //     console.log(option[i].setAttribute("checked" , "checked"));
@@ -115,7 +115,7 @@ function showQuestion(){
 
                    for(var i=0; i<option.length; i++){
                       option[i].addEventListener('click' , function(){
-                        
+
                         var input =  option[i]//document.getElementById('option');          
                           input.setAttribute("checked" , "checked");
 
@@ -130,23 +130,23 @@ function showQuestion(){
                         //   if(input.value == questions[0].correctOption){
                         //        score++;
                         //        console.log();
-                               
+
                         //   } else{
                         //       score = score;
                         //     }
-                          
+
                         }
-      
+
     })
     break;
   }
-                   
+
 
   index++;
 
   if(index == 2){
     nextBtn.addEventListener('click' , function(){
-        
+
     })
   }
 }
@@ -181,23 +181,23 @@ const questions = [
       correctAnswer: 0
     }
   ];
-  
+
   // Variables to track quiz state
   let currentQuestionIndex = 0;
   let score = 0;
-  
+
   // Function to load the current question
   function loadQuestion() {
     var questionElement = document.getElementById("question");
     var optionsElement = document.getElementById("options");
-    
+
     // Clear existing options
     optionsElement.innerHTML = "";
-  
+
     // Load the current question
     var currentQuestion = questions[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
-  
+
     // Load options
     currentQuestion.options.forEach((option, index) => {
       const optionButton = document.createElement("button");
@@ -207,28 +207,28 @@ const questions = [
       optionsElement.appendChild(optionButton);
     });
   }
-  
+
   // Function to check the user's answer
   function checkAnswer(selectedOption) {
     const currentQuestion = questions[currentQuestionIndex];
-  
+
     if (selectedOption === currentQuestion.correctAnswer) {
       score++;
       alert("Correct!");
     } else {
       alert("Incorrect!");
     }
-  
+
     // Move to the next question or end the quiz
     currentQuestionIndex++;
-  
+
     if (currentQuestionIndex < questions.length) {
       loadQuestion();
     } else {
       showResults();
     }
   }
-  
+
   // Function to display the final score
   function showResults() {
     var quizContainer = document.getElementById("quiz-container");
@@ -238,14 +238,240 @@ const questions = [
       <button onclick="restartQuiz()">Restart Quiz</button>
     `;
   }
-  
+
   // Function to restart the quiz
   function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     loadQuestion();
   }
-  
+
   // Initialize the quiz
   loadQuestion();
+
+
+
+
+////////////////////////////////////////////////////////////teacher 
+
+var questions = [
+  {
+    question: 'Inside which HTML element do we put the JavaScript?',
+    option1: 'script',
+    option2: 'javascrip',
+    option3: 'js',
+
+    correctOption: 'script',
+  },
+  {
+    question: 'Where is the correct place to insert a JavaScript?',
+    option1: 'The head section',
+    option2: 'The body section',
+    option3: 'Both the head and "body" section are correct',
+    correctOption: 'The body section',
+  },
+  {
+    question: 'What is the correct syntax for referring to an external script called "xxx.js"?',
+    option1: 'scripr href=xxx.js',
+    option2: 'scripr name=xxx.js',
+    option3: 'scripr src=xxx.js',
+    correctOption: 'scripr src=xxx.js',
+  }]
+
+
+var questionBox = document.getElementById('question');
+var questionNo = document.getElementById('question-no');
+var optionBox = document.getElementById('options');
+var options = document.getElementsByName('option');
+var nextBtn = document.getElementById('next-btn');
+var prevBtn = document.getElementById('prev-btn');
+var restartBtn = document.getElementById('restart-btn');
+
+var index = 0;
+var score = 0;
+
+nextBtn.setAttribute("class" , "display");
+prevBtn.setAttribute("class" , "display");
+
+function showQuestion() {
+  if (!questions[index]) {
+            questionBox.innerHTML = `quiz completed ${score}`
+            nextBtn.style.display = "none"
+  }else{
+
+  questionNo.children.textContent = `Question ${index + 1}`;
+  questionBox.innerHTML = `<p>${questions[index].question}</p>`;
+  optionBox.innerHTML = `<label>
+                            <input type="radio"   name="option" value="${questions[index].option1}" >
+                            ${questions[index].option1}
+                          </label>
+                          <br>
+
+                          <label>
+                            <input type="radio" name="option" value="${questions[index].option2}" >
+                            ${questions[index].option2}
+                          </label>
+                          <br>
+
+                          <label>
+                            <input type="radio" name="option" value="${questions[index].option3}" >
+                            ${questions[index].option3}
+                          </label>`;
+  }
   
+  selectedOption();        
+
+}
+showQuestion();
+
+function selectedOption(){
+
+  
+  for(var i = 0; i < options.length; i++){
+    options[i].addEventListener('click' , function(){
+      // options.setAttribute('checked' , 'checked');
+      nextBtn.setAttribute('class' , 'next');
+      prevBtn.setAttribute('class' , 'prev');
+    })
+    if(options[i].checked){
+      if (options[i].value === questions[index].correctOption) {
+                        score++
+                        console.log(score);
+        
+      }
+      
+    }
+  }
+  
+  
+}
+
+////////////////////////////////////////////////////////////////////////////
+
+function nextQuestion() {
+
+
+  if (index < 2) {
+    index++;
+    showQuestion();
+    console.log(index);
+  } else if (index === 2) {
+    nextBtn.textContent = 'Submit'
+    nextBtn.addEventListener('click', function () {
+      nextBtn.style.display = 'none';
+      prevBtn.style.display = 'none';
+
+
+      questionBox.innerHTML = `<h2>Your Score </h2>
+             <h1> ${score}</h1>
+             <button onClick="restart()" id="restart-btn">Restart </button>`
+
+    })
+  }
+
+
+}
+
+function restart() {
+  index = 0;
+  showQuestion()
+}
+
+
+var index = 0
+var score = 0
+var nextBtn = document.getElementById("Next")
+var questionBox = document.getElementById("questionBox")
+var options = document.getElementsByName("option")
+
+
+var firstObj = questions[index]
+questionBox.innerHTML = `<p>${questions[index].question}</p>
+
+
+<label>
+    <input type="radio"   name="option" value="${questions[index].option1}" >
+    ${questions[index].option1}
+</label>
+<br>
+<label>
+    <input type="radio" name="option" value="${questions[index].option2}" >
+          ${questions[index].option2}
+</label>
+<br>
+<label>
+    <input type="radio" name="option" value="${questions[index].option3}" >
+     ${questions[index].option3}
+</label>`
+
+selectingOptions()
+
+
+function showQuestions() {
+
+
+
+    nextBtn.disabled = true
+    index++;
+
+   // else {
+        questionBox.innerHTML = `<p>${questions[index].question}</p>
+
+
+        <label>
+            <input type="radio"   name="option" value="${questions[index].option1}" >
+            ${questions[index].option1}
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="option" value="${questions[index].option2}" >
+                  ${questions[index].option2}
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="option" value="${questions[index].option3}" >
+             ${questions[index].option3}
+        </label>
+
+`
+
+
+
+        // enabling next Btn
+
+        selectingOptions()
+
+    }
+//}
+
+
+
+function next() {
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].checked) {
+            if (options[i].value === questions[index].correctOption) {
+                score++
+                console.log(score);
+
+            }
+
+        }
+
+    }
+
+    showQuestions();
+
+}
+
+
+function selectingOptions() {
+    for (var i = 0; i < options.length; i++) {
+
+
+
+        options[i].addEventListener("click", function () {
+            nextBtn.disabled = false
+        })
+
+    }
+}

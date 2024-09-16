@@ -10,7 +10,7 @@
     
     <div class="container" id="quiz-container">
         <div id="question-box" >
-            <div class="question-no"> 
+            <div class="question-no" id="question-no"> 
                 <p><a href="./index.html"><</a>Question 01</p>
             </div>
 
@@ -32,7 +32,8 @@
                 
                 </div>
 
-                <div class="next-btn"><button onclick="showQuestion()" id="next-btn" disabled="true">Next <span>></span></button></div>
+                <div class="next-button"><button onclick="showQuestion()" id="prev-btn" class="prev" disabled ='true'>Previous <span>></span></button></div>
+                <div class="next-button"><button onclick="showQuestion()" id="next-btn" class="next" disabled ='true'>Next <span>></span></button></div>
             </div>
         </div>
     </div>
