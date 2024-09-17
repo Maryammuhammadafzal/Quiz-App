@@ -97,33 +97,33 @@ var questions = [
 // }
     // }
 
-// Let's Do this
+// // Let's Do this
 
-var quizbox = document.getElementById('quiz');
-var optionsbox = document.getElementById('options');
-var option = document.getElementsByName('option');
-var nextBtn = document.getElementById('next-btn')
-var index = 0;
-var score = 0;
+// var quizbox = document.getElementById('quiz');
+// var optionsbox = document.getElementById('options');
+// var option = document.getElementsByName('option');
+// var nextBtn = document.getElementById('next-btn')
+// var index = 0;
+// var score = 0;
 
 // console.log(questions[0].question);
 
-function showQuestion(){
-  quizbox.innerHTML = `<p>${questions[index].question}</p>`
-  optionsbox.innerHTML = `
-                   `;
+// function showQuestion(){
+//   quizbox.innerHTML = `<p>${questions[index].question}</p>`
+//   optionsbox.innerHTML = `
+//                    `;
 
-                   for(var i=0; i<option.length; i++){
-                      option[i].addEventListener('click' , function(){
+//                    for(var i=0; i<option.length; i++){
+//                       option[i].addEventListener('click' , function(){
 
-                        var input =  option[i]//document.getElementById('option');          
-                          input.setAttribute("checked" , "checked");
+//                         var input =  option[i]//document.getElementById('option');          
+//                           input.setAttribute("checked" , "checked");
 
-                        if(input.hasAttribute("checked")){
-                          nextBtn.disabled = false;
-                          console.log(questions[0].correctOption);
-                          console.log(input.value);
-                          console.log(input);
+//                         if(input.hasAttribute("checked")){
+//                           nextBtn.disabled = false;
+//                           console.log(questions[0].correctOption);
+//                           console.log(input.value);
+//                           console.log(input);
 
 
 
@@ -135,23 +135,23 @@ function showQuestion(){
                         //       score = score;
                         //     }
 
-                        }
+//                         }
 
-    })
-    break;
-  }
+//     })
+//     break;
+//   }
 
 
-  index++;
+//   index++;
 
-  if(index == 2){
-    nextBtn.addEventListener('click' , function(){
+//   if(index == 2){
+//     nextBtn.addEventListener('click' , function(){
 
-    })
-  }
-}
+//     })
+//   }
+// }
 
-showQuestion();
+// showQuestion();
 
 
 
@@ -164,90 +164,90 @@ showQuestion();
 ////////////////////////////////////////////////
 
 // Sample Questions Array
-const questions = [
-    {
-      question: "What does HTML stand for?",
-      options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language", "Hyper Tool Multi Language"],
-      correctAnswer: 0 // Index of the correct answer in the options array
-    },
-    {
-      question: "What does CSS stand for?",
-      options: ["Cascading Style Sheets", "Creative Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
-      correctAnswer: 0
-    },
-    {
-      question: "Which JavaScript framework is used for building user interfaces?",
-      options: ["React", "Django", "Flask", "Laravel"],
-      correctAnswer: 0
-    }
-  ];
+// const questions = [
+//     {
+//       question: "What does HTML stand for?",
+//       options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language", "Hyper Tool Multi Language"],
+//       correctAnswer: 0 // Index of the correct answer in the options array
+//     },
+//     {
+//       question: "What does CSS stand for?",
+//       options: ["Cascading Style Sheets", "Creative Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
+//       correctAnswer: 0
+//     },
+//     {
+//       question: "Which JavaScript framework is used for building user interfaces?",
+//       options: ["React", "Django", "Flask", "Laravel"],
+//       correctAnswer: 0
+//     }
+//   ];
 
-  // Variables to track quiz state
-  let currentQuestionIndex = 0;
-  let score = 0;
+//   // Variables to track quiz state
+//   let currentQuestionIndex = 0;
+//   let score = 0;
 
-  // Function to load the current question
-  function loadQuestion() {
-    var questionElement = document.getElementById("question");
-    var optionsElement = document.getElementById("options");
+//   // Function to load the current question
+//   function loadQuestion() {
+//     var questionElement = document.getElementById("question");
+//     var optionsElement = document.getElementById("options");
 
-    // Clear existing options
-    optionsElement.innerHTML = "";
+//     // Clear existing options
+//     optionsElement.innerHTML = "";
 
-    // Load the current question
-    var currentQuestion = questions[currentQuestionIndex];
-    questionElement.textContent = currentQuestion.question;
+//     // Load the current question
+//     var currentQuestion = questions[currentQuestionIndex];
+//     questionElement.textContent = currentQuestion.question;
 
-    // Load options
-    currentQuestion.options.forEach((option, index) => {
-      const optionButton = document.createElement("button");
-      optionButton.textContent = option;
-      optionButton.classList.add("option");
-      optionButton.onclick = () => checkAnswer(index);
-      optionsElement.appendChild(optionButton);
-    });
-  }
+//     // Load options
+//     currentQuestion.options.forEach((option, index) => {
+//       const optionButton = document.createElement("button");
+//       optionButton.textContent = option;
+//       optionButton.classList.add("option");
+//       optionButton.onclick = () => checkAnswer(index);
+//       optionsElement.appendChild(optionButton);
+//     });
+//   }
 
-  // Function to check the user's answer
-  function checkAnswer(selectedOption) {
-    const currentQuestion = questions[currentQuestionIndex];
+//   // Function to check the user's answer
+//   function checkAnswer(selectedOption) {
+//     const currentQuestion = questions[currentQuestionIndex];
 
-    if (selectedOption === currentQuestion.correctAnswer) {
-      score++;
-      alert("Correct!");
-    } else {
-      alert("Incorrect!");
-    }
+//     if (selectedOption === currentQuestion.correctAnswer) {
+//       score++;
+//       alert("Correct!");
+//     } else {
+//       alert("Incorrect!");
+//     }
 
-    // Move to the next question or end the quiz
-    currentQuestionIndex++;
+//     // Move to the next question or end the quiz
+//     currentQuestionIndex++;
 
-    if (currentQuestionIndex < questions.length) {
-      loadQuestion();
-    } else {
-      showResults();
-    }
-  }
+//     if (currentQuestionIndex < questions.length) {
+//       loadQuestion();
+//     } else {
+//       showResults();
+//     }
+//   }
 
-  // Function to display the final score
-  function showResults() {
-    var quizContainer = document.getElementById("quiz-container");
-    quizContainer.innerHTML = `
-      <h2>Quiz Completed</h2>
-      <p>Your score: ${score} out of ${questions.length}</p>
-      <button onclick="restartQuiz()">Restart Quiz</button>
-    `;
-  }
+//   // Function to display the final score
+//   function showResults() {
+//     var quizContainer = document.getElementById("quiz-container");
+//     quizContainer.innerHTML = `
+//       <h2>Quiz Completed</h2>
+//       <p>Your score: ${score} out of ${questions.length}</p>
+//       <button onclick="restartQuiz()">Restart Quiz</button>
+//     `;
+//   }
 
-  // Function to restart the quiz
-  function restartQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    loadQuestion();
-  }
+//   // Function to restart the quiz
+//   function restartQuiz() {
+//     currentQuestionIndex = 0;
+//     score = 0;
+//     loadQuestion();
+//   }
 
-  // Initialize the quiz
-  loadQuestion();
+//   // Initialize the quiz
+//   loadQuestion();
 
 
 
@@ -329,14 +329,13 @@ function selectedOption(){
   
   for(var i = 0; i < options.length; i++){
     options[i].addEventListener('click' , function(){
-      // options.setAttribute('checked' , 'checked');
       nextBtn.setAttribute('class' , 'next');
       prevBtn.setAttribute('class' , 'prev');
     })
     if(options[i].checked){
       if (options[i].value === questions[index].correctOption) {
-                        score++
-                        console.log(score);
+            score++
+            console.log(score);
         
       }
       
@@ -349,22 +348,22 @@ function selectedOption(){
 ////////////////////////////////////////////////////////////////////////////
 
 function nextQuestion() {
-
+ 
 
   if (index < 2) {
     index++;
-    showQuestion();
-    console.log(index);
+    // showQuestion();
+    // console.log(index);
   } else if (index === 2) {
     nextBtn.textContent = 'Submit'
     nextBtn.addEventListener('click', function () {
+      
+            questionBox.innerHTML = `<h2>Your Score </h2>
+                   <h1> ${score}</h1>
+                   <button onClick="restart()" id="restart-btn">Restart </button>`
       nextBtn.style.display = 'none';
       prevBtn.style.display = 'none';
 
-
-      questionBox.innerHTML = `<h2>Your Score </h2>
-             <h1> ${score}</h1>
-             <button onClick="restart()" id="restart-btn">Restart </button>`
 
     })
   }
@@ -378,100 +377,100 @@ function restart() {
 }
 
 
-var index = 0
-var score = 0
-var nextBtn = document.getElementById("Next")
-var questionBox = document.getElementById("questionBox")
-var options = document.getElementsByName("option")
+// var index = 0
+// var score = 0
+// var nextBtn = document.getElementById("Next")
+// var questionBox = document.getElementById("questionBox")
+// var options = document.getElementsByName("option")
 
 
-var firstObj = questions[index]
-questionBox.innerHTML = `<p>${questions[index].question}</p>
+// var firstObj = questions[index]
+// questionBox.innerHTML = `<p>${questions[index].question}</p>
 
 
-<label>
-    <input type="radio"   name="option" value="${questions[index].option1}" >
-    ${questions[index].option1}
-</label>
-<br>
-<label>
-    <input type="radio" name="option" value="${questions[index].option2}" >
-          ${questions[index].option2}
-</label>
-<br>
-<label>
-    <input type="radio" name="option" value="${questions[index].option3}" >
-     ${questions[index].option3}
-</label>`
+// <label>
+//     <input type="radio"   name="option" value="${questions[index].option1}" >
+//     ${questions[index].option1}
+// </label>
+// <br>
+// <label>
+//     <input type="radio" name="option" value="${questions[index].option2}" >
+//           ${questions[index].option2}
+// </label>
+// <br>
+// <label>
+//     <input type="radio" name="option" value="${questions[index].option3}" >
+//      ${questions[index].option3}
+// </label>`
 
-selectingOptions()
-
-
-function showQuestions() {
+// selectingOptions()
 
 
-
-    nextBtn.disabled = true
-    index++;
-
-   // else {
-        questionBox.innerHTML = `<p>${questions[index].question}</p>
-
-
-        <label>
-            <input type="radio"   name="option" value="${questions[index].option1}" >
-            ${questions[index].option1}
-        </label>
-        <br>
-        <label>
-            <input type="radio" name="option" value="${questions[index].option2}" >
-                  ${questions[index].option2}
-        </label>
-        <br>
-        <label>
-            <input type="radio" name="option" value="${questions[index].option3}" >
-             ${questions[index].option3}
-        </label>
-
-`
+// function showQuestions() {
 
 
 
-        // enabling next Btn
+//     nextBtn.disabled = true
+//     index++;
 
-        selectingOptions()
-
-    }
-//}
-
+//    // else {
+//         questionBox.innerHTML = `<p>${questions[index].question}</p>
 
 
-function next() {
-    for (var i = 0; i < options.length; i++) {
-        if (options[i].checked) {
-            if (options[i].value === questions[index].correctOption) {
-                score++
-                console.log(score);
+//         <label>
+//             <input type="radio"   name="option" value="${questions[index].option1}" >
+//             ${questions[index].option1}
+//         </label>
+//         <br>
+//         <label>
+//             <input type="radio" name="option" value="${questions[index].option2}" >
+//                   ${questions[index].option2}
+//         </label>
+//         <br>
+//         <label>
+//             <input type="radio" name="option" value="${questions[index].option3}" >
+//              ${questions[index].option3}
+//         </label>
 
-            }
-
-        }
-
-    }
-
-    showQuestions();
-
-}
-
-
-function selectingOptions() {
-    for (var i = 0; i < options.length; i++) {
+// `
 
 
 
-        options[i].addEventListener("click", function () {
-            nextBtn.disabled = false
-        })
+//         // enabling next Btn
 
-    }
-}
+//         selectingOptions()
+
+//     }
+// //}
+
+
+
+// function next() {
+//     for (var i = 0; i < options.length; i++) {
+//         if (options[i].checked) {
+//             if (options[i].value === questions[index].correctOption) {
+//                 score++
+//                 console.log(score);
+
+//             }
+
+//         }
+
+//     }
+
+//     showQuestions();
+
+// }
+
+
+// function selectingOptions() {
+//     for (var i = 0; i < options.length; i++) {
+
+
+
+//         options[i].addEventListener("click", function () {
+//             nextBtn.disabled = false
+//         })
+
+//     }
+// }
