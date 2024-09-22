@@ -284,30 +284,87 @@ var question_box = document.querySelector('.question-box');
 var quiz_box = document.querySelector('.question-answer');
 var quiz = document.querySelector('.quiz');
 var options = document.querySelector('.options');
-var question_no = document.querySelector('.quiz-no')
+var question_no = document.querySelector('.quiz-no');
+var next_btn = document.querySelector('.next');
+var prev_btn = document.querySelector('.prev');
+var input = document.getElementsByName('option');
+var labels = document.getElementsByTagName('label')
 
 
 var index = 0;
 var score = 0;
 
+//Start The Quiz
 function quizStart(){
-  start_btn.addEventListener('click' , function(){
-     container.innerHTML = question_box;
-     quiz_no();
-     
+    question_no.textContent = `Question ${index+1}`;
+    show_Question();
+    show_Options(); 
+    next_btn.classList.add('display');
+    prev_btn.classList.add('display');
+}
+quizStart();
+
+//Select Option
+function select_option(){
+  for(var i = 0; i < labels.length; i++){
+  labels[i].addEventListener('click',function(){
+    for(var i = 0; i < input.length; i++){
+      if(input[i].checked){
+        console.log(input[i].value); 
+      }
+      
+    }
+
+  })
+
+}
+
+  // console.log(labels);
+  
+}
+
+select_option();
+
+//Change Questions
+function change_question(){
+  next_btn.addEventListener('click' , function(){
+    index++;
   })
 }
 
-function quiz_no(){
-  question_no.innerHTML += 'Question' + index+1 
+
+
+
+
+
+// Show Quiz Question
+function show_Question(){
+  quiz.innerHTML = `<p>${questions[index].question}</p>` ;
 }
 
-function show_quiz(){
+//Show Quiz Options
+function show_Options(){
+  options.innerHTML = `<label>
+                             <input type="radio" class="option" name="option" value="${questions[index].option1}" >
+                             ${questions[index].option1}
+                           </label>
+                           <br>
 
+                           <label>
+                             <input type="radio" class="option" name="option" value="${questions[index].option2}" >
+                             ${questions[index].option2}
+                           </label>
+                           <br>
+
+                           <label>
+                             <input type="radio" class="option" name="option" value="${questions[index].option3}" >
+                             ${questions[index].option3}
+                           </label>`;
 }
 
 
 
+//  console.log( question_no.textContent = `Question ${index+1}`);
 
 
 
