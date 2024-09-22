@@ -8,14 +8,16 @@
 </head>
 <body>
     
-    <div class="container" id="quiz-container">
-        <div id="question-box" >
+        <div id="question-box" class="question-box" >
             <div class="question-no" id="question-no"> 
-                <p><a href="./index.html"><</a>Question 01</p>
+                <p class="quiz-no"><a href="./index.html"><</a><!--uestion 01--></p>
             </div>
 
             <div class="question-answer">
-                <div class="quiz" id="question"></div>
+
+                <div class="quiz" id="question">
+
+                </div>
                 <div class="options" id="options">
                     <!-- <label>
                         <input type="radio" name="option" id="option" value="">
@@ -36,7 +38,6 @@
                 <div class="next-button"><a onclick="showQuestion()" id="next-btn" class="next" disabled ='true'>Next <span>></span></a></div>
             </div>
         </div>
-    </div>
 
     <script src="app.js"></script>
 </body>

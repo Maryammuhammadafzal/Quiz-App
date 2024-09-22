@@ -278,103 +278,138 @@ var questions = [
     correctOption: 'scripr src=xxx.js',
   }]
 
+var container = document.querySelector('.container');
+var start_btn = document.querySelector('.start-btn');
+var question_box = document.querySelector('.question-box');
+var quiz_box = document.querySelector('.question-answer');
+var quiz = document.querySelector('.quiz');
+var options = document.querySelector('.options');
+var question_no = document.querySelector('.quiz-no')
 
-var questionBox = document.getElementById('question');
-var questionNo = document.getElementById('question-no');
-var optionBox = document.getElementById('options');
-var options = document.getElementsByName('option');
-var nextBtn = document.getElementById('next-btn');
-var prevBtn = document.getElementById('prev-btn');
-var restartBtn = document.getElementById('restart-btn');
 
 var index = 0;
 var score = 0;
 
-nextBtn.setAttribute("class" , "display");
-prevBtn.setAttribute("class" , "display");
+function quizStart(){
+  start_btn.addEventListener('click' , function(){
+     container.innerHTML = question_box;
+     quiz_no();
+     
+  })
+}
 
-function showQuestion() {
-  if (!questions[index]) {
-            questionBox.innerHTML = `quiz completed ${score}`
-            nextBtn.style.display = "none"
-  }else{
+function quiz_no(){
+  question_no.innerHTML += 'Question' + index+1 
+}
 
-  questionNo.children.textContent = `Question ${index + 1}`;
-  questionBox.innerHTML = `<p>${questions[index].question}</p>`;
-  optionBox.innerHTML = `<label>
-                            <input type="radio"   name="option" value="${questions[index].option1}" >
-                            ${questions[index].option1}
-                          </label>
-                          <br>
-
-                          <label>
-                            <input type="radio" name="option" value="${questions[index].option2}" >
-                            ${questions[index].option2}
-                          </label>
-                          <br>
-
-                          <label>
-                            <input type="radio" name="option" value="${questions[index].option3}" >
-                            ${questions[index].option3}
-                          </label>`;
-  }
-  
-  selectedOption();        
+function show_quiz(){
 
 }
-showQuestion();
 
-function selectedOption(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// nextBtn.setAttribute("class" , "display");
+// prevBtn.setAttribute("class" , "display");
+
+// function showQuestion() {
+//   if (!questions[index]) {
+//             questionBox.innerHTML = `quiz completed ${score}`
+//             nextBtn.style.display = "none"
+//   }else{
+
+//   questionNo.children.textContent = `Question ${index + 1}`;
+//   questionBox.innerHTML = `<p>${questions[index].question}</p>`;
+//   optionBox.innerHTML = `<label>
+//                             <input type="radio"   name="option" value="${questions[index].option1}" >
+//                             ${questions[index].option1}
+//                           </label>
+//                           <br>
+
+//                           <label>
+//                             <input type="radio" name="option" value="${questions[index].option2}" >
+//                             ${questions[index].option2}
+//                           </label>
+//                           <br>
+
+//                           <label>
+//                             <input type="radio" name="option" value="${questions[index].option3}" >
+//                             ${questions[index].option3}
+//                           </label>`;
+//   }
+  
+//   selectedOption();        
+
+// }
+// showQuestion();
+
+// function selectedOption(){
 
   
-  for(var i = 0; i < options.length; i++){
-    options[i].addEventListener('click' , function(){
-      nextBtn.setAttribute('class' , 'next');
-      prevBtn.setAttribute('class' , 'prev');
-    })
-    if(options[i].checked){
-      if (options[i].value === questions[index].correctOption) {
-            score++
-            console.log(score);
+//   for(var i = 0; i < options.length; i++){
+//     options[i].addEventListener('click' , function(){
+//       nextBtn.setAttribute('class' , 'next');
+//       prevBtn.setAttribute('class' , 'prev');
+//     })
+//     if(options[i].checked){
+//       if (options[i].value === questions[index].correctOption) {
+//             score++
+//             console.log(score);
         
-      }
+//       }
       
-    }
-  }
+//     }
+//   }
   
   
-}
+// }
 
-////////////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////////////
 
-function nextQuestion() {
+// function nextQuestion() {
  
 
-  if (index < 2) {
-    index++;
-    // showQuestion();
-    // console.log(index);
-  } else if (index === 2) {
-    nextBtn.textContent = 'Submit'
-    nextBtn.addEventListener('click', function () {
+//   if (index < 2) {
+//     index++;
+//     // showQuestion();
+//     // console.log(index);
+//   } else if (index === 2) {
+//     nextBtn.textContent = 'Submit'
+//     nextBtn.addEventListener('click', function () {
       
-            questionBox.innerHTML = `<h2>Your Score </h2>
-                   <h1> ${score}</h1>
-                   <button onClick="restart()" id="restart-btn">Restart </button>`
-      nextBtn.style.display = 'none';
-      prevBtn.style.display = 'none';
+//             questionBox.innerHTML = `<h2>Your Score </h2>
+//                    <h1> ${score}</h1>
+//                    <button onClick="restart()" id="restart-btn">Restart </button>`
+//       nextBtn.style.display = 'none';
+//       prevBtn.style.display = 'none';
 
 
-    })
-  }
+//     })
+//   }
 
 
-}
+// }
 
-function restart() {
-  index = 0;
-  showQuestion()
-}
+// function restart() {
+//   index = 0;
+//   showQuestion()
+// }
+
+
 
 
 // var index = 0
