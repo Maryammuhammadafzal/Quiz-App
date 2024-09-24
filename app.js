@@ -307,14 +307,18 @@ quizStart();
 //Select Option
 function select_option(){
   for(var i = 0; i < labels.length; i++){
-  labels[i].addEventListener('click',function(){
+labels[i] && labels[i].addEventListener('click',function(){
+    next_btn.classList.remove('display');
+    prev_btn.classList.remove('display');
     for(var i = 0; i < input.length; i++){
       if(input[i].checked){
-        console.log(input[i].value); 
+        if(input[i].value == questions[index].correctOption){
+          // change_question();
+          score++;
+        } 
       }
-      
+      break;
     }
-
   })
 
 }
@@ -327,11 +331,11 @@ select_option();
 
 //Change Questions
 function change_question(){
-  next_btn.addEventListener('click' , function(){
+ next_btn && next_btn.addEventListener('click' , function(){
     index++;
   })
 }
-
+change_question()
 
 
 
@@ -341,6 +345,8 @@ function change_question(){
 function show_Question(){
   quiz.innerHTML = `<p>${questions[index].question}</p>` ;
 }
+
+
 
 //Show Quiz Options
 function show_Options(){
