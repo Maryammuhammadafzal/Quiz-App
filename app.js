@@ -542,33 +542,33 @@ function show_Options(){
 // //}
 
 
+//////////////////////////////////////
+function next() {
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].checked) {
+            if (options[i].value === questions[index].correctOption) {
+                score++
+                console.log(score);
 
-// function next() {
-//     for (var i = 0; i < options.length; i++) {
-//         if (options[i].checked) {
-//             if (options[i].value === questions[index].correctOption) {
-//                 score++
-//                 console.log(score);
+            }
 
-//             }
+        }
 
-//         }
+    }
 
-//     }
+    showQuestions();
 
-//     showQuestions();
-
-// }
-
-
-// function selectingOptions() {
-//     for (var i = 0; i < options.length; i++) {
+}
 
 
+function selectingOptions() {
+    for (var i = 0; i < options.length; i++) {
 
-//         options[i].addEventListener("click", function () {
-//             nextBtn.disabled = false
-//         })
 
-//     }
-// }
+
+        options[i].addEventListener("click", function () {
+            nextBtn.disabled = false
+        })
+
+    }
+}
