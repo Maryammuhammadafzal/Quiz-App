@@ -386,163 +386,163 @@ function show_Options(){
 
 
 
-// nextBtn.setAttribute("class" , "display");
-// prevBtn.setAttribute("class" , "display");
+nextBtn.setAttribute("class" , "display");
+prevBtn.setAttribute("class" , "display");
 
-// function showQuestion() {
-//   if (!questions[index]) {
-//             questionBox.innerHTML = `quiz completed ${score}`
-//             nextBtn.style.display = "none"
-//   }else{
+function showQuestion() {
+  if (!questions[index]) {
+            questionBox.innerHTML = `quiz completed ${score}`
+            nextBtn.style.display = "none"
+  }else{
 
-//   questionNo.children.textContent = `Question ${index + 1}`;
-//   questionBox.innerHTML = `<p>${questions[index].question}</p>`;
-//   optionBox.innerHTML = `<label>
-//                             <input type="radio"   name="option" value="${questions[index].option1}" >
-//                             ${questions[index].option1}
-//                           </label>
-//                           <br>
+  questionNo.children.textContent = `Question ${index + 1}`;
+  questionBox.innerHTML = `<p>${questions[index].question}</p>`;
+  optionBox.innerHTML = `<label>
+                            <input type="radio"   name="option" value="${questions[index].option1}" >
+                            ${questions[index].option1}
+                          </label>
+                          <br>
 
-//                           <label>
-//                             <input type="radio" name="option" value="${questions[index].option2}" >
-//                             ${questions[index].option2}
-//                           </label>
-//                           <br>
+                          <label>
+                            <input type="radio" name="option" value="${questions[index].option2}" >
+                            ${questions[index].option2}
+                          </label>
+                          <br>
 
-//                           <label>
-//                             <input type="radio" name="option" value="${questions[index].option3}" >
-//                             ${questions[index].option3}
-//                           </label>`;
-//   }
+                          <label>
+                            <input type="radio" name="option" value="${questions[index].option3}" >
+                            ${questions[index].option3}
+                          </label>`;
+  }
   
-//   selectedOption();        
+  selectedOption();        
 
-// }
-// showQuestion();
+}
+showQuestion();
 
-// function selectedOption(){
+function selectedOption(){
 
   
-//   for(var i = 0; i < options.length; i++){
-//     options[i].addEventListener('click' , function(){
-//       nextBtn.setAttribute('class' , 'next');
-//       prevBtn.setAttribute('class' , 'prev');
-//     })
-//     if(options[i].checked){
-//       if (options[i].value === questions[index].correctOption) {
-//             score++
-//             console.log(score);
+  for(var i = 0; i < options.length; i++){
+    options[i].addEventListener('click' , function(){
+      nextBtn.setAttribute('class' , 'next');
+      prevBtn.setAttribute('class' , 'prev');
+    })
+    if(options[i].checked){
+      if (options[i].value === questions[index].correctOption) {
+            score++
+            console.log(score);
         
-//       }
+      }
       
-//     }
-//   }
+    }
+  }
   
   
-// }
+}
 
-// ////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 
-// function nextQuestion() {
+function nextQuestion() {
  
 
-//   if (index < 2) {
-//     index++;
-//     // showQuestion();
-//     // console.log(index);
-//   } else if (index === 2) {
-//     nextBtn.textContent = 'Submit'
-//     nextBtn.addEventListener('click', function () {
+  if (index < 2) {
+    index++;
+    // showQuestion();
+    // console.log(index);
+  } else if (index === 2) {
+    nextBtn.textContent = 'Submit'
+    nextBtn.addEventListener('click', function () {
       
-//             questionBox.innerHTML = `<h2>Your Score </h2>
-//                    <h1> ${score}</h1>
-//                    <button onClick="restart()" id="restart-btn">Restart </button>`
-//       nextBtn.style.display = 'none';
-//       prevBtn.style.display = 'none';
+            questionBox.innerHTML = `<h2>Your Score </h2>
+                   <h1> ${score}</h1>
+                   <button onClick="restart()" id="restart-btn">Restart </button>`
+      nextBtn.style.display = 'none';
+      prevBtn.style.display = 'none';
 
 
-//     })
-//   }
+    })
+  }
 
 
-// }
+}
 
-// function restart() {
-//   index = 0;
-//   showQuestion()
-// }
-
-
-
-
-// var index = 0
-// var score = 0
-// var nextBtn = document.getElementById("Next")
-// var questionBox = document.getElementById("questionBox")
-// var options = document.getElementsByName("option")
-
-
-// var firstObj = questions[index]
-// questionBox.innerHTML = `<p>${questions[index].question}</p>
-
-
-// <label>
-//     <input type="radio"   name="option" value="${questions[index].option1}" >
-//     ${questions[index].option1}
-// </label>
-// <br>
-// <label>
-//     <input type="radio" name="option" value="${questions[index].option2}" >
-//           ${questions[index].option2}
-// </label>
-// <br>
-// <label>
-//     <input type="radio" name="option" value="${questions[index].option3}" >
-//      ${questions[index].option3}
-// </label>`
-
-// selectingOptions()
-
-
-// function showQuestions() {
+function restart() {
+  index = 0;
+  showQuestion()
+}
 
 
 
-//     nextBtn.disabled = true
-//     index++;
 
-//    // else {
-//         questionBox.innerHTML = `<p>${questions[index].question}</p>
-
-
-//         <label>
-//             <input type="radio"   name="option" value="${questions[index].option1}" >
-//             ${questions[index].option1}
-//         </label>
-//         <br>
-//         <label>
-//             <input type="radio" name="option" value="${questions[index].option2}" >
-//                   ${questions[index].option2}
-//         </label>
-//         <br>
-//         <label>
-//             <input type="radio" name="option" value="${questions[index].option3}" >
-//              ${questions[index].option3}
-//         </label>
-
-// `
+var index = 0
+var score = 0
+var nextBtn = document.getElementById("Next")
+var questionBox = document.getElementById("questionBox")
+var options = document.getElementsByName("option")
 
 
-
-//         // enabling next Btn
-
-//         selectingOptions()
-
-//     }
-// //}
+var firstObj = questions[index]
+questionBox.innerHTML = `<p>${questions[index].question}</p>
 
 
-//////////////////////////////////////
+<label>
+    <input type="radio"   name="option" value="${questions[index].option1}" >
+    ${questions[index].option1}
+</label>
+<br>
+<label>
+    <input type="radio" name="option" value="${questions[index].option2}" >
+          ${questions[index].option2}
+</label>
+<br>
+<label>
+    <input type="radio" name="option" value="${questions[index].option3}" >
+     ${questions[index].option3}
+</label>`
+
+selectingOptions()
+
+
+function showQuestions() {
+
+
+
+    nextBtn.disabled = true
+    index++;
+
+   // else {
+        questionBox.innerHTML = `<p>${questions[index].question}</p>
+
+
+        <label>
+            <input type="radio"   name="option" value="${questions[index].option1}" >
+            ${questions[index].option1}
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="option" value="${questions[index].option2}" >
+                  ${questions[index].option2}
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="option" value="${questions[index].option3}" >
+             ${questions[index].option3}
+        </label>
+
+`
+
+
+
+        // enabling next Btn
+
+        selectingOptions()
+
+    }
+//}
+
+
+
 function next() {
     for (var i = 0; i < options.length; i++) {
         if (options[i].checked) {
