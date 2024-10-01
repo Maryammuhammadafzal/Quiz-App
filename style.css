@@ -1,4 +1,4 @@
-/* Basic reset */
+/* Basic reset
 *{
     padding: 0;
     margin: 0;
@@ -68,14 +68,13 @@ justify-content: center;
 }
 
 
-/* Question page styling */
+Question page styling
 
 .question-box{
     width: 100%;
     height: 100vh;
     display: flex;
-    /* align-items: center;
-    justify-content: center; */
+    
     flex-direction: column;
 }
 
@@ -250,4 +249,37 @@ justify-content: center;
     background-color: #ffffff;
     color: rgb(117, 117, 117);
     border-radius: 50%;
+} */
+
+
+
+
+/* // */
+
+
+.container-fluid{
+    height: 100vh !important;
+    background-color: #16423C;
+    border: 0;
+}
+.qBox{
+    background-color: #6A9C89;
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+}
+
+.btn-div{
+    /* width: 50%;   */
+    border-radius: 10px;
+  background-color: #6A9C89 !important;
+}
+
+.btn-div button{
+    background-color: #16423C;
+    
+}
+.btn-div button:hover{
+    background-color: #16423C;
+
 }
