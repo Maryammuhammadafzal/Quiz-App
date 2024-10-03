@@ -1,3 +1,5 @@
+'use strict'
+
 // var questions = [
 //     {
 //         question: 'Inside which HTML element do we put the JavaScript?',
@@ -611,81 +613,146 @@ var questions = [
 	},
 ];
 
-var index = 0;
-var score = 0;
 
-function renderQuestions() {
-	if (index < questions.length) {
-		var questionsBox = document.getElementById('questions');
+let score = 0;
+let current_question_number = 0;
+let question_no = document.getElementById("quiz-no");
+let question_text = document.getElementById('question');
+let options = document.getElementById('options');
+let options = document.getElementsByName(option);
+let optionValue = ''
 
-		questionsBox.innerHTML = `
-<div>
-   <p>"${questions[index].question}"</p>
-   <div class="form-check d-flex flex-column">
-      <div>
-         <input class="form-check-input" type="radio"  value="${questions[index].option1}" name="options" id="option1">
-         <label class="form-check-label" for="option1">
-         ${questions[index].option1}
-         </label>
-      </div>
-      <div>
-         <input class="form-check-input" type="radio" value="${questions[index].option2}"name="options" id="option2">
-         <label class="form-check-label" for="option2">
-         ${questions[index].option2}
-         </label>
-      </div>
-      <div>
-         <input class="form-check-input"  type="radio"  value="${questions[index].option3}" name="options" id="option3">
-         <label class="form-check-label"  for="option3">
-         ${questions[index].option3}
-         </label> 
-      </div>
-      <div class="btn-div mt-3">
-         <button id="next" disabled class="btn text-white">Next</button>
-      </div>
-   </div>
-</div>
-</div>
-</div>
+function showQuestion(){
 
-`;
 
-		// Enabling next button on options clicking
-		var options = document.getElementsByName('options');
-		var nextBtn = document.getElementById('next');
+	// Show quetion number
+	question_no.innerHTML = ` Question ${current_question_number + 1}`;
 
-		for (var i = 0; i < options.length; i++) {
-			options[i].addEventListener('click', function () {
-				nextBtn.disabled = false;
-			});
-		}
+	// Show quetion text
+	question_text.innerHTML = `<p>${questions[current_question_number].question}</p>`;
 
-		// Next button incrementing index and rendering questions func invoked start
-		nextBtn.addEventListener('click', function () {
-			// Check the selected answer
-			for (var i = 0; i < options.length; i++) {
-				
-				
-				if (options[i].checked) {
-					console.log(options[i].value.trim());
-					console.log(questions[index].correctOption);
-					if (options[i].value === questions[index].correctOption) {
-						console.log("heki");
-						
-						score++;
-					}
-				}
-			}
+	// Show Options
+	options.innerHTML = `<label>
+						<input type="radio" name="option" id="option" value="${questions[current_question_number].option1}">
+						${questions[current_question_number].option1}
+					</label>
+					<label>
+						<input type="radio" name="option" id="option" value="${questions[current_question_number].option2}">
+						${questions[current_question_number].option2}
+					</label>
+					<label>
+						<input type="radio" name="option" id="option" value="${questions[current_question_number].option3}">
+						${questions[current_question_number].option3}
+					</label>`;
+}
+showQuestion()
 
-			// Move to the next question
-			index++;
-			renderQuestions();
-		});
-
-		// end
-	} else {
-		document.getElementById('questions').innerHTML = `<p>Quiz completed! Your score: ${score}</p>`;
+function selected_option(){
+	let label_option = document.getElementsByTagName('label')
+	for(var i = 0; i < label_option.length; i++){
+		label_option[i].addEventListener('click' , function(){
+			optionValue = options.value;
+		})
 	}
 }
 
-renderQuestions();
+function show_next_question(){
+	// next btn 
+	let next_btn = document.getElementById('next-btn');
+	next_btn.addEventListener('click' , function (){
+		//
+		
+	})
+}
+
+function startQuiz(){
+	let start_btn = document.querySelector('#start-btn');
+	start_btn.addEventListener('click', function (){
+		window.location.href = "question.html";
+	})
+}
+ 
+
+startQuiz();
+
+
+
+
+// var index = 0;
+// var score = 0;
+
+// function renderQuestions() {
+// 	if (index < questions.length) {
+// 		var questionsBox = document.getElementById('questions');
+
+// 		questionsBox.innerHTML = `
+// <div>
+//    <p>"${questions[index].question}"</p>
+//    <div class="form-check d-flex flex-column">
+//       <div>
+//          <input class="form-check-input" type="radio"  value="${questions[index].option1}" name="options" id="option1">
+//          <label class="form-check-label" for="option1">
+//          ${questions[index].option1}
+//          </label>
+//       </div>
+//       <div>
+//          <input class="form-check-input" type="radio" value="${questions[index].option2}"name="options" id="option2">
+//          <label class="form-check-label" for="option2">
+//          ${questions[index].option2}
+//          </label>
+//       </div>
+//       <div>
+//          <input class="form-check-input"  type="radio"  value="${questions[index].option3}" name="options" id="option3">
+//          <label class="form-check-label"  for="option3">
+//          ${questions[index].option3}
+//          </label> 
+//       </div>
+//       <div class="btn-div mt-3">
+//          <button id="next" disabled class="btn text-white">Next</button>
+//       </div>
+//    </div>
+// </div>
+// </div>
+// </div>
+
+// `;
+
+// 		// Enabling next button on options clicking
+// 		var options = document.getElementsByName('options');
+// 		var nextBtn = document.getElementById('next');
+
+// 		for (var i = 0; i < options.length; i++) {
+// 			options[i].addEventListener('click', function () {
+// 				nextBtn.disabled = false;
+// 			});
+// 		}
+
+// 		// Next button incrementing index and rendering questions func invoked start
+// 		nextBtn.addEventListener('click', function () {
+// 			// Check the selected answer
+// 			for (var i = 0; i < options.length; i++) {
+				
+				
+// 				if (options[i].checked) {
+// 					console.log(options[i].value.trim());
+// 					console.log(questions[index].correctOption);
+// 					if (options[i].value === questions[index].correctOption) {
+// 						console.log("heki");
+						
+// 						score++;
+// 					}
+// 				}
+// 			}
+
+// 			// Move to the next question
+// 			index++;
+// 			renderQuestions();
+// 		});
+
+// 		// end
+// 	} else {
+// 		document.getElementById('questions').innerHTML = `<p>Quiz completed! Your score: ${score}</p>`;
+// 	}
+// }
+
+// renderQuestions();
