@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 
 // var questions = [
 //     {
@@ -616,69 +616,89 @@ var questions = [
 
 let score = 0;
 let current_question_number = 0;
-let question_no = document.getElementById("quiz-no");
-let question_text = document.getElementById('question');
-let options = document.getElementById('options');
-let options = document.getElementsByName(option);
+let question_no = document.querySelector("#quiz-no");
+let question_text = document.querySelector('.quiz');
+let options = document.querySelector('.options');
+let optionsName = document.getElementsByName('option');
 let optionValue = ''
+let next_btn = document.getElementById('next-btn');
 
-function showQuestion(){
-
-
-	// Show quetion number
-	question_no.innerHTML = ` Question ${current_question_number + 1}`;
-
-	// Show quetion text
-	question_text.innerHTML = `<p>${questions[current_question_number].question}</p>`;
-
-	// Show Options
-	options.innerHTML = `<label>
-						<input type="radio" name="option" id="option" value="${questions[current_question_number].option1}">
-						${questions[current_question_number].option1}
-					</label>
-					<label>
-						<input type="radio" name="option" id="option" value="${questions[current_question_number].option2}">
-						${questions[current_question_number].option2}
-					</label>
-					<label>
-						<input type="radio" name="option" id="option" value="${questions[current_question_number].option3}">
-						${questions[current_question_number].option3}
-					</label>`;
-}
-showQuestion()
-
-function selected_option(){
-	let label_option = document.getElementsByTagName('label')
-	for(var i = 0; i < label_option.length; i++){
-		label_option[i].addEventListener('click' , function(){
-			optionValue = options.value;
-		})
-	}
-}
-
-function show_next_question(){
-	// next btn 
-	let next_btn = document.getElementById('next-btn');
-	next_btn.addEventListener('click' , function (){
-		//
-		
-	})
-}
 
 function startQuiz(){
 	let start_btn = document.querySelector('#start-btn');
-	start_btn.addEventListener('click', function (){
+    start_btn && start_btn.addEventListener('click', function (){
 		window.location.href = "question.html";
 	})
 }
- 
+
 
 startQuiz();
 
 
 
 
-// var index = 0;
+
+function showQuestion(){
+	
+	
+	//next Button disabled
+	next_btn.disabled = true;
+	
+	// Show quetion number
+	question_no.innerHTML = ` Question ${current_question_number + 1}`;
+	
+	// Show quetion text
+	question_text.innerHTML = `<p>${questions[current_question_number].question}</p>`;
+	
+	// Show Options
+	options.innerHTML = `<label>
+	<input type="radio" name="option" id="option" value="${questions[current_question_number].option1}">
+	${questions[current_question_number].option1}
+	</label>
+	<label>
+	<input type="radio" name="option" id="option" value="${questions[current_question_number].option2}">
+						${questions[current_question_number].option2}
+						</label>
+						<label>
+						<input type="radio" name="option" id="option" value="${questions[current_question_number].option3}">
+						${questions[current_question_number].option3}
+						</label>`;
+						
+					
+		// selected_option();      			
+					
+		
+	}
+showQuestion();
+					
+function selected_option(){
+	// let options = document.getElementsByTagName('label')
+	for(var i = 0; i < options.length; i++){
+options[i] && options[i].addEventListener('click' , function(){
+			if(options[i].checked){
+				next_btn.disabled = false;
+				optionValue = options[i].optionValue
+				console.log(optionValue);
+				
+			}
+		})
+	}
+}				
+			
+function show_next_question(){
+	// next btn 
+
+next_btn &&	next_btn.addEventListener('click' , function (){
+	
+})
+}
+selected_option();
+show_next_question();
+console.log(typeof options);
+
+					
+					
+					// var index = 0;
 // var score = 0;
 
 // function renderQuestions() {
