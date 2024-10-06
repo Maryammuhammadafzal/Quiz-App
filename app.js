@@ -633,6 +633,15 @@ function startQuiz(){
 
 
 startQuiz();
+function startQuiz(){
+	let start_btn = document.querySelector('#start-btn');
+    start_btn && start_btn.addEventListener('click', function (){
+		window.location.href = "question.html";
+	})
+}
+
+
+startQuiz();
 
 
 
